@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { isArray, isNullOrUndefined } from 'util';
 import { Product } from '../model/product.model';
@@ -7,7 +7,8 @@ import { ProductService } from '../services/product.service';
 @Component({
   selector: 'product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  styleUrls: ['./product.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductComponent implements OnInit {
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
