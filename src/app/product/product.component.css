@@ -1,0 +1,50 @@
+.rounded-top {
+    border-top-left-radius: 1.5rem!important;
+    border-top-right-radius: 1.5rem!important;
+}
+
+.product-name {
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 32pt;
+    color: #000000;
+}
+
+.product-city {
+    font-family: Montserrat;
+    font-weight: Regular;
+    font-size: 14pt;
+    color: #707070;
+}
+
+.product-district {
+    font-family: Montserrat;
+    font-weight: Regular;
+    font-size: 16pt;
+    color: #707070;
+}
+
+.product-usable-areas {
+    font-family: Montserrat;
+    font-weight: Regular;
+    font-size: 14pt;
+    color: #000000;
+}
+
+.product-en-suites {
+    font-family: Montserrat;
+    font-weight: Regular;
+    font-size: 14pt;
+    color: #000000;
+}
+
+.product-geo-location {
+    font-family: Montserrat;
+    font-weight: Regular;
+    font-size: 14pt;
+    color: #000000;
+}
+
+.rotate-icon {
+    transform: rotateY(180deg) rotate(90deg);
+}

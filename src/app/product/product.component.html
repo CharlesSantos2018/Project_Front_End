@@ -1,0 +1,58 @@
+<table mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="product">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <mat-card style="padding: 0px;">
+        <div id="carouselPhoto" class="carousel slide" [attr.data-ride]="carousel">
+          <div class="carousel-indicators">
+            <button *ngFor="let photo of element.photos; let i = index; count as c" type="button"
+              data-bs-target="#carouselPhoto" [attr.data-slide-to]="i" class="active" aria-current="true"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active" *ngFor="let photo of element.photos">
+              <img src="{{photo}}" class="d-block w-100 rounded-top">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselPhoto" [attr.data-slide]="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselPhoto" [attr.data-slide]="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </mat-card>
+
+      <mat-card class="rounded-top">
+        <div class="product-name">
+          {{element.name}}
+        </div>
+        <div class="product-district">
+          {{element.address.district}}
+        </div>
+        <div class="product-city">
+          {{element.address.city}}
+        </div>
+        <br>
+        <div class="product-usable-areas">
+          <i class="fal fa-key-skeleton rotate-icon"></i>
+          Apartamentos de {{ element.units.usable_areas | tranform_usable_areas }}
+        </div>
+        <div class="product-en-suites" *ngIf="element.units.en_suites.length > 0">
+          <i class="fal fa-bed-alt"></i>
+          {{ element.units.en_suites.length}} suítes
+        </div>
+        <div class="product-geo-location" *ngIf="element.address.geo_location != ''">
+          <i class="fal fa-map-marker-alt"></i>
+          {{element.address.geo_location}}
+        </div>
+      </mat-card>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+
+<mat-paginator [pageSize]="1" [length]="dataSource.data.length"></mat-paginator>
